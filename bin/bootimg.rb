@@ -102,6 +102,7 @@ module BootImg
     RamDisk.pack('initrd.gz', verbose)
     puts './boot/initrd.gz' if verbose
     ramdisk_data = IO.read('initrd.gz')
+    File.unlink('initrd.gz')
     puts './boot/zImage' if verbose
     kernel_data = IO.read('zImage')
     puts './boot/cfg.rb' if verbose
